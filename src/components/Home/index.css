@@ -2,3 +2,23 @@
   display: flex;
   justify-content: space-between;
 }
+.dark {
+  background-color: #181818;
+}
+
+.menu {
+  width: 350px;
+  padding: 20px;
+}
+.video-container {
+  padding: 2px;
+}
+.failure-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.failure-img {
+  width: 50%;
+}

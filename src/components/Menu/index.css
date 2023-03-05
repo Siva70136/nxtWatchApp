@@ -1,6 +1,8 @@
 .nav-link {
   text-decoration: none;
   cursor: pointer;
+}
+.light {
   color: black;
 }
 
