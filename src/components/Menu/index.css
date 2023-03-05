@@ -1,0 +1,12 @@
+.nav-link {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.item {
+  list-style: none;
+}
+
+.active-tab {
+  background-color: #cbd5e1;
+}

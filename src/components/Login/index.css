@@ -1,0 +1,58 @@
+.nav-link {
+  text-decoration: none;
+}
+
+.app-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.main-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  box-shadow: 10px 10px 10px 10px #cbd5e1;
+  height: 350px;
+}
+.dark {
+  color: white;
+  background-color: black;
+}
+.login-form {
+  display: flex;
+  flex-direction: column;
+}
+.label {
+  font-weight: 500;
+  color: #64748b;
+}
+.box {
+  padding: 10px;
+  border: 1px solid #64748b;
+  background-color: transparent;
+  border-radius: 4px;
+  outline: none;
+}
+.check {
+  background-color: #3b82f6;
+}
+
+.login-button {
+  margin-top: 18px;
+  padding: 12px;
+  background-color: #3b82f6;
+  color: white;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  border-radius: 8px;
+  font-weight: 500;
+}
+
+.error {
+  color: red;
+  font-weight: 400;
+}
