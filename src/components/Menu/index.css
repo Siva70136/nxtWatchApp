@@ -1,10 +1,7 @@
 .nav-link {
   text-decoration: none;
   cursor: pointer;
-}
-
-.item {
-  list-style: none;
+  color: black;
 }
 
 .active-tab {
