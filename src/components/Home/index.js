@@ -54,6 +54,7 @@ class Home extends Component {
   getInfo = async () => {
     this.setState({
       apiStatus: apiConsonants.isLoading,
+      videoList: [],
     })
 
     const url = 'https://apis.ccbp.in/videos/all?search='
@@ -66,14 +67,16 @@ class Home extends Component {
     }
     const response = await fetch(url, options)
     const data = await response.json()
+    console.log(data)
     if (response.ok === false) {
-      console.log(data)
+      this.setState({
+        apiStatus: apiConsonants.success,
+      })
     } else {
       this.setState({
         apiStatus: apiConsonants.failure,
       })
     }
-    console.log(data)
   }
 
   renderItems = () => {
