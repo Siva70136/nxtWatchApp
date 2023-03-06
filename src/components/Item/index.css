@@ -1,0 +1,27 @@
+.video-item {
+  font-family: 'Roboto';
+  width: 270px;
+  margin: 5px;
+}
+
+.thumbnail {
+  width: 250px;
+}
+.profile-container {
+  display: flex;
+  align-items: flex-start;
+  margin-top: 3px;
+  margin-right: 5px;
+}
+.profile-img {
+  width: 40px;
+  height: 35px;
+  margin-top: 12px;
+}
+.view-count {
+  margin-right: 15px;
+}
+.count-container {
+  display: flex;
+  align-items: center;
+}

@@ -3,6 +3,7 @@ import {Component} from 'react'
 import ThemeContext from './context/ThemeContext'
 import Login from './components/Login'
 import Home from './components/Home'
+import VideoItem from './components/VideoItem'
 import ProtectedRoute from './components/PotectedRoute'
 import './App.css'
 
@@ -29,6 +30,7 @@ class App extends Component {
         <Switch>
           <Route exact path="/login" component={Login} />
           <ProtectedRoute exact path="/" component={Home} />
+          <ProtectedRoute exact path="videos/:params" component={VideoItem} />
         </Switch>
       </ThemeContext.Provider>
     )
