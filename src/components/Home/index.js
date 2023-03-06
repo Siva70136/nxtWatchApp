@@ -56,10 +56,11 @@ class Home extends Component {
       {value => {
         const {isDark} = value
         const imageUrl = isDark ? darkLogo : lightLogo
-        const className = isDark ? 'dark' : 'light'
+        const className = isDark ? 'dark-home' : 'light'
+
         const {videoList} = this.state
         return (
-          <div className="home-video-container">
+          <div className={`home-video-container ${className}`}>
             <div className="banner-container">
               <div className="banner-data-container">
                 <img src={imageUrl} alt="website logo" className="logo" />

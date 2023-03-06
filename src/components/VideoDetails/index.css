@@ -1,0 +1,13 @@
+.video-details-item {
+  align-self: flex-end;
+}
+.like-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+.icon-img {
+  font-size: 23px;
+  margin: 3px;
+}
