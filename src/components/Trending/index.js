@@ -6,6 +6,7 @@ import TrendingItem from '../TrendingItem'
 import Header from '../Header'
 import Menu from '../Menu'
 import ThemeContext from '../../context/ThemeContext'
+import TrendingContainer from './styleComponents'
 
 const lightImage =
   'https://assets.ccbp.in/frontend/react-js/nxt-watch-failure-view-light-theme-img.png'
@@ -35,11 +36,16 @@ class Trending extends Component {
         const className = isDark ? 'dark' : 'light'
 
         return (
-          <div className={`failure-container ${className}`}>
-            <img src={imageUrl} alt="failure" className="failure-img" />
-            <h1 className="">oops something went wrong</h1>
-            <p>We have trouble</p>
-            <button type="button">Retry</button>
+          <div
+            className={`failure-container ${className}`}
+            data-testid="trending"
+          >
+            <img src={imageUrl} alt="failure view" className="failure-img" />
+            <h1 className="">Oops! Something Went Wrong</h1>
+            <p>We are having some trouble</p>
+            <button type="button" onClick={this.getTrendingDetails}>
+              Retry
+            </button>
           </div>
         )
       }}
@@ -70,11 +76,11 @@ class Trending extends Component {
               <h1 className="title-name">Trending</h1>
             </div>
 
-            <div className="video-item-container">
+            <ul className="video-item-container">
               {trendingList.map(each => (
                 <TrendingItem item={each} key={each.id} />
               ))}
-            </div>
+            </ul>
           </div>
         )
       }}
@@ -136,7 +142,7 @@ class Trending extends Component {
 
           const className = isDark ? 'dark' : 'light'
           return (
-            <div className={`home-app-container ${className}`}>
+            <TrendingContainer className={className} data-textid="trending">
               <Header />
               <div className="home-container">
                 <div className="menu">
@@ -144,7 +150,7 @@ class Trending extends Component {
                 </div>
                 <div className="video-container">{this.renderItems()}</div>
               </div>
-            </div>
+            </TrendingContainer>
           )
         }}
       </ThemeContext.Consumer>

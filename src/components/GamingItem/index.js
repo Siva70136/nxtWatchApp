@@ -6,9 +6,9 @@ const GamingItem = props => {
   const {title, thumbnailUrl, viewCount, id} = item
 
   return (
-    <div className="video-item">
+    <li className="video-item">
       <Link to={`videos/${id}`} className="nav-link">
-        <img src={thumbnailUrl} alt={title} className="thumbnail" />
+        <img src={thumbnailUrl} alt="video thumbnail" className="thumbnail" />
       </Link>
       <div className="profile-container">
         <div className="data-container">
@@ -19,7 +19,7 @@ const GamingItem = props => {
           </div>
         </div>
       </div>
-    </div>
+    </li>
   )
 }
 

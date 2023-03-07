@@ -11,12 +11,12 @@ const TrendingItem = props => {
   const {name, profileImageUrl} = updatedData
 
   return (
-    <div className="trending-video-item">
+    <li className="trending-video-item">
       <Link to={`videos/${id}`} className="nav-link">
-        <img src={thumbnailUrl} alt={title} className="thumbnail" />
+        <img src={thumbnailUrl} alt="video thumbnail" className="thumbnail" />
       </Link>
       <div className="trending-profile-container">
-        <img src={profileImageUrl} alt={name} className="profile-img" />
+        <img src={profileImageUrl} alt="channel logo" className="profile-img" />
         <div className="data-container">
           <p className="title">{title}</p>
           <p className="name">{name}</p>
@@ -26,7 +26,7 @@ const TrendingItem = props => {
           </div>
         </div>
       </div>
-    </div>
+    </li>
   )
 }
 

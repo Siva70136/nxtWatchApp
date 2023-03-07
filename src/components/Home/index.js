@@ -1,9 +1,12 @@
 import {Component} from 'react'
 import Cookies from 'js-cookie'
+import {Link} from 'react-router-dom'
 import Loader from 'react-loader-spinner'
+import {AiOutlineClose, AiOutlineSearch} from 'react-icons/ai'
 import Header from '../Header'
 import Menu from '../Menu'
 import Item from '../Item'
+import {BannerContainer, HomeAppContainer} from './styledComponents'
 import ThemeContext from '../../context/ThemeContext'
 
 import './index.css'
@@ -13,9 +16,6 @@ const lightImage =
 const darkImage =
   'https://assets.ccbp.in/frontend/react-js/nxt-watch-failure-view-dark-theme-img.png'
 
-const lightLogo =
-  'https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png'
-
 const apiConsonants = {
   initial: 'INITIAL',
   success: 'SUCCESS',
@@ -24,7 +24,7 @@ const apiConsonants = {
 }
 
 class Home extends Component {
-  state = {apiStatus: apiConsonants.initial, videoList: []}
+  state = {apiStatus: apiConsonants.initial, videoList: [], search: ''}
 
   componentDidMount() {
     this.getInfo()
@@ -39,10 +39,14 @@ class Home extends Component {
 
         return (
           <div className={`failure-container ${className}`}>
-            <img src={imageUrl} alt="failure" className="failure-img" />
-            <h1 className="">oops something went wrong</h1>
-            <p>We have trouble</p>
-            <button type="button" className="button retry-button">
+            <img src={imageUrl} alt="failure view" className="failure-img" />
+            <h1 className="">Oops! Something Went Wrong</h1>
+            <p>We are having some trouble</p>
+            <button
+              type="button"
+              onClick={this.getInfo}
+              className="retry-button button"
+            >
               Retry
             </button>
           </div>
@@ -51,41 +55,68 @@ class Home extends Component {
     </ThemeContext.Consumer>
   )
 
-  renderSuccessView = () => (
+  onSearch = event => {
+    this.setState({
+      search: event.target.value,
+    })
+  }
+
+  renderVideoItems = () => {
+    const {videoList} = this.state
+    return (
+      <div className="video-item-container">
+        {videoList.map(each => (
+          <Item item={each} key={each.id} />
+        ))}
+      </div>
+    )
+  }
+
+  changeSearch = () => {
+    this.setState(
+      {
+        search: '',
+      },
+      this.getInfo,
+    )
+  }
+
+  renderNoVideos = () => (
     <ThemeContext.Consumer>
       {value => {
         const {isDark} = value
-        const imageUrl = isDark ? lightLogo : lightLogo
-        const className = isDark ? 'dark-home' : 'light'
 
-        const {videoList} = this.state
+        const className = isDark ? 'dark' : 'light'
+
         return (
-          <div className={`home-video-container ${className}`}>
-            <div className="banner-container">
-              <div className="banner-data-container">
-                <img src={imageUrl} alt="website logo" className="logo" />
-                <h1 className="cap">Buy Nxt Watch</h1>
-                <p>We have trouble</p>
-                <button type="button" className="get-button button">
-                  GET IT NOW
-                </button>
-              </div>
-              <img
-                src="https://assets.ccbp.in/frontend/react-js/nxt-watch-banner-bg.png"
-                className="banner"
-                alt="Banner Background"
-              />
-            </div>
-            <div className="video-item-container">
-              {videoList.map(each => (
-                <Item item={each} key={each.id} />
-              ))}
-            </div>
+          <div className={`failure-container ${className}`}>
+            <img
+              src="https://assets.ccbp.in/frontend/react-js/nxt-watch-no-search-results-img.png"
+              alt="no videos"
+              className="failure-img"
+            />
+            <h1 className="">No Search results found</h1>
+            <p>Try different key words or remove search filter</p>
+            <button
+              type="button"
+              onClick={this.changeSearch}
+              className="retry-button button"
+            >
+              Retry
+            </button>
           </div>
         )
       }}
     </ThemeContext.Consumer>
   )
+
+  renderSuccessView = () => {
+    const {videoList} = this.state
+    const len = videoList.length
+    console.log(len)
+
+    return <>{len === 0 ? this.renderNoVideos() : this.renderVideoItems()}</>
+  }
 
   renderLoader = () => (
     <div className="loader-container" data-testid="loader">
@@ -97,8 +128,9 @@ class Home extends Component {
     this.setState({
       apiStatus: apiConsonants.isLoading,
     })
+    const {search} = this.state
 
-    const url = 'https://apis.ccbp.in/videos/all?search='
+    const url = `https://apis.ccbp.in/videos/all?search=${search}`
     const token = Cookies.get('jwt_token')
     const options = {
       method: 'GET',
@@ -150,18 +182,73 @@ class Home extends Component {
       <ThemeContext.Consumer>
         {value => {
           const {isDark} = value
-
+          const {search} = this.state
           const className = isDark ? 'dark' : 'light'
+          const className1 = isDark ? 'dark-home' : 'light'
           return (
-            <div className={`home-app-container ${className}`}>
+            <HomeAppContainer className={className} data-testid="home">
               <Header />
               <div className="home-container">
-                <div className="menu">
+                <div className={`menu ${className}`}>
                   <Menu />
                 </div>
-                <div className="video-container">{this.renderItems()}</div>
+                <div className="video-container">
+                  <div className={`home-video-container ${className1}`}>
+                    <BannerContainer data-testid="banner">
+                      <div className="x">
+                        <button
+                          type="button"
+                          className="button wrong"
+                          data-testid="close"
+                        >
+                          <AiOutlineClose className="close" />
+                        </button>
+                      </div>
+                      <div className="banner-data-container">
+                        <Link to="/">
+                          <img
+                            src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png"
+                            alt="nxt watch logo"
+                            className="logo"
+                          />
+                        </Link>
+                        <p className="cap">Buy Nxt Watch Premium</p>
+                        <p>We have trouble</p>
+                        <button
+                          type="button"
+                          className="get-button button"
+                          data-testid="close"
+                        >
+                          GET IT NOW
+                        </button>
+                      </div>
+                    </BannerContainer>
+                    <div className="banner-video-container">
+                      <div className="search-container">
+                        <input
+                          type="search"
+                          placeholder="Search"
+                          value={search}
+                          className="search-box box"
+                          onChange={this.onSearch}
+                        />
+                        <button
+                          type="button"
+                          data-testid="searchButton"
+                          onClick={this.getInfo}
+                          className="search-button"
+                        >
+                          <AiOutlineSearch
+                            className={`search-icon ${className}`}
+                          />
+                        </button>
+                      </div>
+                      {this.renderItems()}
+                    </div>
+                  </div>
+                </div>
               </div>
-            </div>
+            </HomeAppContainer>
           )
         }}
       </ThemeContext.Consumer>

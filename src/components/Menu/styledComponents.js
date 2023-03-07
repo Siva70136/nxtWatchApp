@@ -6,6 +6,7 @@ export const MainContainer = styled.div`
   justify-content: space-between;
   background-color:${props => props.isDark}?'#181818':'#f9f9f9'
   padding: 10px;
+  height:100vh;
 `
 export const LinkContainer = styled.div`
   padding: 10px;
@@ -29,10 +30,7 @@ export const Caption = styled.p`
   font-weight: 500;
   margin-left: 10px;
   
-    background-color: ${props => {
-      console.log(props.id)
-      return props.id === props.activeTab
-    }}  ? 'lightblue': "white";
+    background-color: ${props => props.id === props.activeTab}?#2563eb: #64748b;
 `
 export const ImageContainer = styled.div`
   display: flex;

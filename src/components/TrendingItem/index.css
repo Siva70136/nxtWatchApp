@@ -1,6 +1,7 @@
 .trending-video-item {
   display: flex;
   align-items: center;
+  list-style: none;
 }
 
 .trending-profile-container {

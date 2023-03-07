@@ -5,6 +5,7 @@ import Header from '../Header'
 import Menu from '../Menu'
 import VideoDetails from '../VideoDetails'
 import ThemeContext from '../../context/ThemeContext'
+import VideoItemContainer from './styledComponents'
 
 import './index.css'
 
@@ -136,7 +137,10 @@ class VideoItem extends Component {
 
           const className = isDark ? 'dark' : 'light'
           return (
-            <div className={`home-app-container ${className}`}>
+            <VideoItemContainer
+              className={className}
+              data-testid="videoItemDetails"
+            >
               <Header />
               <div className="home-container">
                 <div className="menu">
@@ -144,7 +148,7 @@ class VideoItem extends Component {
                 </div>
                 <div className="video-container">{this.renderItem()}</div>
               </div>
-            </div>
+            </VideoItemContainer>
           )
         }}
       </ThemeContext.Consumer>

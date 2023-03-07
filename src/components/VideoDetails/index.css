@@ -1,13 +1,37 @@
 .video-details-item {
   align-self: flex-end;
+  list-style: none;
 }
-.like-container {
+.publish-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px;
 }
+.like-container {
+  display: flex;
+  align-items: center;
+}
+.icons-container {
+  display: flex;
+}
 .icon-img {
   font-size: 23px;
   margin: 3px;
+}
+.like {
+  border: none;
+  background-color: transparent;
+}
+.dis-like-container {
+  display: flex;
+  align-items: center;
+}
+.save-container {
+  display: flex;
+  align-items: center;
+}
+.dis-like {
+  border: none;
+  background-color: transparent;
 }

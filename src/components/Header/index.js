@@ -1,6 +1,6 @@
 import Popup from 'reactjs-popup'
 import Cookies from 'js-cookie'
-import {withRouter} from 'react-router-dom'
+import {withRouter, Link} from 'react-router-dom'
 import {AiOutlineClose} from 'react-icons/ai'
 import {FaMoon} from 'react-icons/fa'
 import {FiSun} from 'react-icons/fi'
@@ -39,7 +39,9 @@ const Header = props => (
         <div className={`header-container ${className}`}>
           <div className="inner-container">
             <div className="logo-container">
-              <img src={imageUrl} className="logo" alt="website logo" />
+              <Link to="/">
+                <img src={imageUrl} className="logo" alt="website logo" />
+              </Link>
             </div>
             <div className="nav-items">
               <button
@@ -59,7 +61,7 @@ const Header = props => (
                 modal
                 trigger={
                   <button type="button" className="trigger-button button">
-                    Log Out
+                    Logout
                   </button>
                 }
               >
@@ -74,9 +76,13 @@ const Header = props => (
                       >
                         <AiOutlineClose />
                       </button>
-                      <h1 className="">Are sure Want to logout</h1>
+                      <p className="">Are you sure, you want to logout</p>
                       <div className="button-container">
-                        <button type="button" className="cancel-button button">
+                        <button
+                          type="button"
+                          className="cancel-button button"
+                          onClick={() => close()}
+                        >
                           Cancel
                         </button>
                         <button

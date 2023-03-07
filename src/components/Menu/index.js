@@ -53,19 +53,19 @@ const Menu = () => (
               </Item>
             </Link>
             <Link
-              to="/games"
+              to="/gaming"
               className={`nav-link active-tab ${className}`}
               onClick={onChangeTab}
             >
               <Item>
                 <NavItemContainer>
                   <FaGamepad />
-                  <Caption id="GAME"> Games</Caption>
+                  <Caption id="GAME"> Gaming</Caption>
                 </NavItemContainer>
               </Item>
             </Link>
             <Link
-              to="/save"
+              to="/saved-videos"
               className={`nav-link active-tab ${className}`}
               onClick={onChangeTab}
             >
@@ -78,7 +78,7 @@ const Menu = () => (
             </Link>
           </LinkContainer>
           <div>
-            <h1>CONTACT US</h1>
+            <p>CONTACT US</p>
             <ImageContainer>
               <ImgIcon
                 src="https://assets.ccbp.in/frontend/react-js/nxt-watch-facebook-logo-img.png"
@@ -93,7 +93,9 @@ const Menu = () => (
                 alt="linked in logo"
               />
             </ImageContainer>
-            <Caption>ENJOY! NOW TO SEE YOUR CHANNELS TO SUGGESTIONS</Caption>
+            <Caption>
+              Enjoy! Now to see your channels and recommendations!
+            </Caption>
           </div>
         </MainContainer>
       )

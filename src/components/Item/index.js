@@ -11,22 +11,22 @@ const Item = props => {
   const {name, profileImageUrl} = updatedData
 
   return (
-    <div className="video-item">
+    <li className="video-item">
       <Link to={`videos/${id}`} className="nav-link">
-        <img src={thumbnailUrl} alt={title} className="thumbnail" />
+        <img src={thumbnailUrl} alt="video thumbnail" className="thumbnail" />
       </Link>
       <div className="profile-container">
-        <img src={profileImageUrl} alt={name} className="profile-img" />
+        <img src={profileImageUrl} alt="channel logo" className="profile-img" />
         <div className="data-container">
           <p className="title">{title}</p>
           <p className="name">{name}</p>
           <div className="count-container">
-            <p className="view-count">{viewCount} views</p>
-            <li>{publishedAt}</li>
+            <p className="view-count">{viewCount} views.</p>
+            <p>{publishedAt}</p>
           </div>
         </div>
       </div>
-    </div>
+    </li>
   )
 }
 

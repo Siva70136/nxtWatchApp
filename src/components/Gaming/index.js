@@ -6,6 +6,7 @@ import GamingItem from '../GamingItem'
 import Header from '../Header'
 import Menu from '../Menu'
 import ThemeContext from '../../context/ThemeContext'
+import GamingContainer from './styledComponents'
 
 import './index.css'
 
@@ -38,10 +39,16 @@ class Gaming extends Component {
 
         return (
           <div className={`failure-container ${className}`}>
-            <img src={imageUrl} alt="failure" className="failure-img" />
-            <h1 className="">oops something went wrong</h1>
-            <p>We have trouble</p>
-            <button type="button">Retry</button>
+            <img src={imageUrl} alt="failure view" className="failure-img" />
+            <h1 className="">Oops! Something Went Wrong</h1>
+            <p>We are having some trouble</p>
+            <button
+              type="button"
+              onClick={this.getTrendingDetails}
+              className="retry-button button"
+            >
+              Retry
+            </button>
           </div>
         )
       }}
@@ -135,7 +142,7 @@ class Gaming extends Component {
 
           const className = isDark ? 'dark' : 'light'
           return (
-            <div className={`home-app-container ${className}`}>
+            <GamingContainer className={className} data-testid="gaming">
               <Header />
               <div className="home-container">
                 <div className="menu">
@@ -143,7 +150,7 @@ class Gaming extends Component {
                 </div>
                 <div className="video-container">{this.renderItems()}</div>
               </div>
-            </div>
+            </GamingContainer>
           )
         }}
       </ThemeContext.Consumer>
