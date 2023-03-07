@@ -42,7 +42,9 @@ class Home extends Component {
             <img src={imageUrl} alt="failure" className="failure-img" />
             <h1 className="">oops something went wrong</h1>
             <p>We have trouble</p>
-            <button type="button">Retry</button>
+            <button type="button" className="button retry-button">
+              Retry
+            </button>
           </div>
         )
       }}
@@ -64,7 +66,9 @@ class Home extends Component {
                 <img src={imageUrl} alt="website logo" className="logo" />
                 <h1 className="cap">Buy Nxt Watch</h1>
                 <p>We have trouble</p>
-                <button type="button">GET IT NOW</button>
+                <button type="button" className="get-button button">
+                  GET IT NOW
+                </button>
               </div>
               <img
                 src="https://assets.ccbp.in/frontend/react-js/nxt-watch-banner-bg.png"

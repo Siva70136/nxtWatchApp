@@ -57,3 +57,8 @@
 .home-video-container {
   padding: 20px;
 }
+
+.get-button {
+  border: 1px solid lightgray;
+  cursor: pointer;
+}

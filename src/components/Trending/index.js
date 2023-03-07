@@ -67,7 +67,7 @@ class Trending extends Component {
                 <AiFillFire className="game-pad" />
               </div>
 
-              <h1 className="title-name">Gaming</h1>
+              <h1 className="title-name">Trending</h1>
             </div>
 
             <div className="video-item-container">
