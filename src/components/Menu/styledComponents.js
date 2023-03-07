@@ -17,12 +17,22 @@ export const Item = styled.li`
 export const NavItemContainer = styled.div`
   display: flex;
   align-items: center;
+  margin: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  width: 150px;
+  height: 40px;
 `
 
 export const Caption = styled.p`
   font-size: 16px;
   font-weight: 500;
   margin-left: 10px;
+  
+    background-color: ${props => {
+      console.log(props.id)
+      return props.id === props.activeTab
+    }}  ? 'lightblue': "white";
 `
 export const ImageContainer = styled.div`
   display: flex;

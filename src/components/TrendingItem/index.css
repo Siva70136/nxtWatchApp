@@ -1,0 +1,8 @@
+.trending-video-item {
+  display: flex;
+  align-items: center;
+}
+
+.trending-profile-container {
+  margin-left: 10px;
+}

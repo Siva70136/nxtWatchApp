@@ -16,41 +16,63 @@ import './index.css'
 const Menu = () => (
   <ThemeContext.Consumer>
     {value => {
-      const {isDark} = value
+      const {isDark, changeActiveTab, activeTab} = value
       const className = isDark ? 'dark' : 'light'
+
+      const onChangeTab = event => {
+        changeActiveTab(event.target.id)
+      }
 
       return (
         <MainContainer isDark={isDark}>
           <LinkContainer>
-            <Link to="/" className={`nav-link active-tab ${className}`}>
+            <Link
+              to="/"
+              className={`nav-link  ${className}`}
+              onClick={onChangeTab}
+            >
               <Item>
                 <NavItemContainer>
                   <AiFillHome />
-                  <Caption className=""> Home</Caption>
+                  <Caption id="HOME" activeTab={activeTab}>
+                    Home
+                  </Caption>
                 </NavItemContainer>
               </Item>
             </Link>
-            <Link to="/trending" className={`nav-link active-tab ${className}`}>
+            <Link
+              to="/trending"
+              className={`nav-link active-tab ${className}`}
+              onClick={onChangeTab}
+            >
               <Item>
                 <NavItemContainer>
                   <AiFillFire />
-                  <Caption className=""> Trending</Caption>
+                  <Caption id="TREND"> Trending</Caption>
                 </NavItemContainer>
               </Item>
             </Link>
-            <Link to="/games" className={`nav-link active-tab ${className}`}>
+            <Link
+              to="/games"
+              className={`nav-link active-tab ${className}`}
+              onClick={onChangeTab}
+            >
               <Item>
                 <NavItemContainer>
                   <FaGamepad />
-                  <Caption className=""> Games</Caption>
+                  <Caption id="GAME"> Games</Caption>
                 </NavItemContainer>
               </Item>
             </Link>
-            <Link to="/save" className={`nav-link active-tab ${className}`}>
+            <Link
+              to="/save"
+              className={`nav-link active-tab ${className}`}
+              onClick={onChangeTab}
+            >
               <Item>
                 <NavItemContainer>
                   <AiFillHome />
-                  <Caption className=""> Saved Videos</Caption>
+                  <Caption id="SAVE"> Saved Videos</Caption>
                 </NavItemContainer>
               </Item>
             </Link>

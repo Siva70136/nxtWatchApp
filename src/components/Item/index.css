@@ -1,11 +1,11 @@
 .video-item {
   font-family: 'Roboto';
-  width: 270px;
+  width: 300px;
   margin: 5px;
 }
 
 .thumbnail {
-  width: 250px;
+  width: 290px;
 }
 .profile-container {
   display: flex;

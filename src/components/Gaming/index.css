@@ -1,0 +1,21 @@
+.title-container {
+  display: flex;
+  background-color: #cccccc;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+.game-pad {
+  font-size: 70px;
+  color: red;
+}
+.game-icon-container {
+  background-color: #f1f5f9;
+  width: 90px;
+  border-radius: 50px;
+  padding: 10px;
+  margin-right: 20px;
+}
+.title-name {
+  color: #231f20;
+}
