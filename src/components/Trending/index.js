@@ -58,34 +58,26 @@ class Trending extends Component {
     </div>
   )
 
-  renderSuccessView = () => (
-    <ThemeContext.Consumer>
-      {value => {
-        const {isDark} = value
-
-        const className = isDark ? 'dark-home' : 'light'
-
-        const {trendingList} = this.state
-        return (
-          <div className={`home-video-container ${className}`}>
-            <div className="title-container">
-              <div className="game-icon-container">
-                <AiFillFire className="game-pad" />
-              </div>
-
-              <h1 className="title-name">Trending</h1>
-            </div>
-
-            <ul className="video-item-container">
-              {trendingList.map(each => (
-                <TrendingItem item={each} key={each.id} />
-              ))}
-            </ul>
+  renderSuccessView = () => {
+    const {trendingList} = this.state
+    return (
+      <div className="home-video-container">
+        <div className="title-container">
+          <div className="game-icon-container">
+            <AiFillFire className="game-pad" />
           </div>
-        )
-      }}
-    </ThemeContext.Consumer>
-  )
+
+          <h1 className="title-name">Trending</h1>
+        </div>
+
+        <ul className="video-item-container">
+          {trendingList.map(each => (
+            <TrendingItem item={each} key={each.id} />
+          ))}
+        </ul>
+      </div>
+    )
+  }
 
   getTrendingDetails = async () => {
     this.setState({apiStatus: apiConsonants.isLoading})
@@ -139,13 +131,13 @@ class Trending extends Component {
       <ThemeContext.Consumer>
         {value => {
           const {isDark} = value
-
+          const className1 = isDark ? 'dark-home' : 'light'
           const className = isDark ? 'dark' : 'light'
           return (
             <TrendingContainer className={className} data-textid="trending">
               <Header />
               <div className="home-container">
-                <div className="menu">
+                <div className={`menu ${className1}`}>
                   <Menu />
                 </div>
                 <div className="video-container">{this.renderItems()}</div>

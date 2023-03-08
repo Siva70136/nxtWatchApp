@@ -9,6 +9,9 @@ export const BannerContainer = styled.div`
   background-image: url('https://assets.ccbp.in/frontend/react-js/nxt-watch-banner-bg.png');
   background-size: cover;
   width: 100%;
+  @media screen and (max-width: 576px) {
+    width: 100%;
+  }
 `
 
 export const HomeAppContainer = styled.div`

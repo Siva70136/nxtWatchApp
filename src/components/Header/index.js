@@ -1,9 +1,9 @@
 import Popup from 'reactjs-popup'
 import Cookies from 'js-cookie'
 import {withRouter, Link} from 'react-router-dom'
-import {AiOutlineClose} from 'react-icons/ai'
+import {AiOutlineClose, AiOutlineMenu} from 'react-icons/ai'
 import {FaMoon} from 'react-icons/fa'
-import {FiSun} from 'react-icons/fi'
+import {FiSun, FiLogOut} from 'react-icons/fi'
 
 import ThemeContext from '../../context/ThemeContext'
 
@@ -19,7 +19,7 @@ const Header = props => (
     {value => {
       const {isDark, changeTheme} = value
       const imageUrl = isDark ? darkImage : lightImage
-      const className = isDark ? 'dark' : 'light'
+      const className = isDark ? 'dark-home' : 'light'
       const icon = isDark ? (
         <FiSun className="icon-sun" />
       ) : (
@@ -62,6 +62,58 @@ const Header = props => (
                 trigger={
                   <button type="button" className="trigger-button button">
                     Logout
+                  </button>
+                }
+              >
+                {close => (
+                  <>
+                    <div className="confirmation">
+                      <button
+                        type="button"
+                        className="button cross"
+                        onClick={() => close()}
+                        data-testid="close"
+                      >
+                        <AiOutlineClose />
+                      </button>
+                      <p className="">Are you sure, you want to logout</p>
+                      <div className="button-container">
+                        <button
+                          type="button"
+                          className="cancel-button button"
+                          onClick={() => close()}
+                        >
+                          Cancel
+                        </button>
+                        <button
+                          type="button"
+                          className="confirm-button button"
+                          onClick={onLogout}
+                        >
+                          Confirm
+                        </button>
+                      </div>
+                    </div>
+                  </>
+                )}
+              </Popup>
+            </div>
+
+            <div className="nav-items-sm">
+              <button
+                type="button"
+                className="button icon-button"
+                onClick={onCall}
+                data-testid="theme"
+              >
+                {icon}
+              </button>
+              <AiOutlineMenu />
+              <Popup
+                modal
+                trigger={
+                  <button type="button" className="trigger-button button">
+                    <FiLogOut />
                   </button>
                 }
               >

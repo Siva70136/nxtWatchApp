@@ -35,10 +35,9 @@ class Gaming extends Component {
       {value => {
         const {isDark} = value
         const imageUrl = isDark ? darkImage : lightImage
-        const className = isDark ? 'dark' : 'light'
 
         return (
-          <div className={`failure-container ${className}`}>
+          <div className="failure-container">
             <img src={imageUrl} alt="failure view" className="failure-img" />
             <h1 className="">Oops! Something Went Wrong</h1>
             <p>We are having some trouble</p>
@@ -61,31 +60,25 @@ class Gaming extends Component {
     </div>
   )
 
-  renderSuccessView = () => (
-    <ThemeContext.Consumer>
-      {value => {
-        const {isDark} = value
-        const className = isDark ? 'dark-home' : 'light'
-        const {trendingList} = this.state
-        return (
-          <div className={`home-video-container ${className}`}>
-            <div className="title-container">
-              <div className="game-icon-container">
-                <FaGamepad className="game-pad" />
-              </div>
-
-              <h1 className="title-name">Gaming</h1>
-            </div>
-            <div className="video-item-container">
-              {trendingList.map(each => (
-                <GamingItem item={each} key={each.id} />
-              ))}
-            </div>
+  renderSuccessView = () => {
+    const {trendingList} = this.state
+    return (
+      <div className="home-video-container">
+        <div className="title-container">
+          <div className="game-icon-container">
+            <FaGamepad className="game-pad" />
           </div>
-        )
-      }}
-    </ThemeContext.Consumer>
-  )
+
+          <h1 className="title-name">Gaming</h1>
+        </div>
+        <div className="video-item-container">
+          {trendingList.map(each => (
+            <GamingItem item={each} key={each.id} />
+          ))}
+        </div>
+      </div>
+    )
+  }
 
   getTrendingDetails = async () => {
     this.setState({
@@ -139,16 +132,16 @@ class Gaming extends Component {
       <ThemeContext.Consumer>
         {value => {
           const {isDark} = value
-
+          const className1 = isDark ? 'dark-home' : 'light'
           const className = isDark ? 'dark' : 'light'
           return (
             <GamingContainer className={className} data-testid="gaming">
               <Header />
               <div className="home-container">
-                <div className="menu">
+                <div className={`menu ${className1}`}>
                   <Menu />
                 </div>
-                <div className="video-container">{this.renderItems()}</div>
+                <div className="game-container">{this.renderItems()}</div>
               </div>
             </GamingContainer>
           )

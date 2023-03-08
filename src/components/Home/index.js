@@ -113,7 +113,6 @@ class Home extends Component {
   renderSuccessView = () => {
     const {videoList} = this.state
     const len = videoList.length
-    console.log(len)
 
     return <>{len === 0 ? this.renderNoVideos() : this.renderVideoItems()}</>
   }
@@ -142,7 +141,7 @@ class Home extends Component {
 
     if (response.ok === true) {
       const data = await response.json()
-      console.log(data)
+
       const updatedData = data.videos.map(each => ({
         channel: each.channel,
         id: each.id,
@@ -151,7 +150,7 @@ class Home extends Component {
         viewCount: each.view_count,
         title: each.title,
       }))
-      console.log(updatedData)
+
       this.setState({
         apiStatus: apiConsonants.success,
         videoList: updatedData,
@@ -189,11 +188,11 @@ class Home extends Component {
             <HomeAppContainer className={className} data-testid="home">
               <Header />
               <div className="home-container">
-                <div className={`menu ${className}`}>
+                <div className={`menu ${className1}`}>
                   <Menu />
                 </div>
                 <div className="video-container">
-                  <div className={`home-video-container ${className1}`}>
+                  <div className={`home-video-container ${className}`}>
                     <BannerContainer data-testid="banner">
                       <div className="x">
                         <button

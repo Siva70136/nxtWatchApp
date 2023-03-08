@@ -72,3 +72,9 @@
   background-color: #3b82f6;
   color: #ffffff;
 }
+
+@media screen and (max-width: 576px) {
+  .menu {
+    display: none;
+  }
+}

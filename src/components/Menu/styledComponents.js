@@ -4,7 +4,8 @@ export const MainContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background-color:${props => props.isDark}?'#181818':'#f9f9f9'
+  background-color:${props => props.className === 'dark-home'}?#181818:#f9f9f9;
+  color:${props => props.className === 'dark-home'}?#f9f9f9:#181818;
   padding: 10px;
   height:100vh;
 `
@@ -29,8 +30,7 @@ export const Caption = styled.p`
   font-size: 16px;
   font-weight: 500;
   margin-left: 10px;
-  
-    background-color: ${props => props.id === props.activeTab}?#2563eb: #64748b;
+  background-color: ${props => props.id === props.activeTab}?#2563eb: #64748b;
 `
 export const ImageContainer = styled.div`
   display: flex;

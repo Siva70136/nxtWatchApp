@@ -1,0 +1,16 @@
+.gaming-video-item {
+  margin: 12px;
+  list-style: none;
+}
+
+.gaming-thumbnail {
+  width: 300px;
+}
+@media screen and (max-width: 576px) {
+  .gaming-video-item {
+    margin: 5px;
+  }
+  .gaming-thumbnail {
+    width: 150px;
+  }
+}

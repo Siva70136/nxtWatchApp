@@ -97,29 +97,25 @@ class Login extends Component {
       <div className={`app-container ${className}`}>
         <div className="main-container">
           <div className="login-container">
-            <img
-              src={imageUrl}
-              alt="website logo"
-              className="website-logo-image"
-            />
+            <img src={imageUrl} alt="website logo" className="login-image" />
             <form className="login-form" onSubmit={this.onLogin}>
-              <label htmlFor="user" className="label">
+              <label htmlFor="user" className="input-label">
                 USERNAME
               </label>
               <input
                 type="text"
-                className="box"
+                className="box username-input-field"
                 placeholder="Username"
                 id="user"
                 onChange={this.onNameChange}
                 value={name}
               />
-              <label htmlFor="password" className="label">
+              <label htmlFor="password" className="input-label">
                 PASSWORD
               </label>
               <input
                 type={visible}
-                className="box"
+                className="box password-input-field"
                 placeholder="Password"
                 id="password"
                 onChange={this.onPwdChange}
@@ -133,7 +129,7 @@ class Login extends Component {
                   checked={check}
                   className={`${checked}`}
                 />
-                <label htmlFor="show" className="label">
+                <label htmlFor="show" className="input-label">
                   Show Password
                 </label>
               </div>
@@ -141,7 +137,7 @@ class Login extends Component {
                 Login
               </button>
 
-              <p className="error">{errorMsg}</p>
+              <p className="error-message">{errorMsg}</p>
             </form>
           </div>
         </div>

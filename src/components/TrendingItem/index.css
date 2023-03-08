@@ -2,8 +2,22 @@
   display: flex;
   align-items: center;
   list-style: none;
+  margin: 8px;
 }
 
 .trending-profile-container {
   margin-left: 10px;
+}
+@media screen and (max-width: 576px) {
+  .trending-video-item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .trending-profile-container {
+    display: flex;
+  }
+  .data-container {
+    width: 100%;
+  }
 }

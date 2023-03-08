@@ -1,7 +1,12 @@
 .nav-link {
   text-decoration: none;
   cursor: pointer;
+  text-decoration: none;
 }
 .light {
   color: black;
+}
+.dark-home {
+  background-color: #181818;
+  color: #f9f9f9;
 }

@@ -6,6 +6,7 @@
 .inner-container {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .logo {
@@ -16,6 +17,23 @@
   align-items: center;
   justify-content: space-between;
   width: 230px;
+}
+.nav-items-sm {
+  display: none;
+}
+@media screen and (max-width: 576px) {
+  .logo {
+    width: 100px;
+  }
+  .nav-items {
+    display: none;
+  }
+  .nav-items-sm {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 130px;
+  }
 }
 .icon-button {
   background-color: transparent;
@@ -38,8 +56,9 @@
 }
 
 .trigger-button {
-  background-color: #3b82f6;
-  color: white;
+  background-color: transparent;
+  border: 1px solid #3b82f6;
+  color: #3b82f6;
 }
 
 .confirmation {
@@ -60,4 +79,31 @@
 .cross {
   align-self: flex-end;
   background-color: transparent;
+}
+
+@media screen and (max-width: 576px) {
+  .icon-button {
+    background-color: transparent;
+    font-size: 18px;
+    margin-top: 10px;
+  }
+  .trigger-button {
+    background-color: transparent;
+    color: black;
+    border: none;
+  }
+  .confirmation {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    width: 280px;
+    box-shadow: 10px 10px 10px 10px #cbd5e1;
+  }
+  .button-container {
+    display: flex;
+    justify-content: space-around;
+    width: 100px;
+  }
 }

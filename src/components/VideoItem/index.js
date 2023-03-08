@@ -53,22 +53,14 @@ class VideoItem extends Component {
     </div>
   )
 
-  renderSuccessView = () => (
-    <ThemeContext.Consumer>
-      {value => {
-        const {isDark} = value
-
-        const className = isDark ? 'dark-home' : 'light'
-
-        const {videoItem} = this.state
-        return (
-          <div className={`video-item-details-container ${className}`}>
-            <VideoDetails item={videoItem} key={videoItem.id} />
-          </div>
-        )
-      }}
-    </ThemeContext.Consumer>
-  )
+  renderSuccessView = () => {
+    const {videoItem} = this.state
+    return (
+      <div className={`video-item-details-container `}>
+        <VideoDetails item={videoItem} key={videoItem.id} />
+      </div>
+    )
+  }
 
   getDetails = async () => {
     this.setState({
@@ -102,8 +94,6 @@ class VideoItem extends Component {
         title: each.title,
       }
 
-      console.log(updatedData)
-
       this.setState({
         videoItem: updatedData,
         apiStatus: apiConsonants.success,
@@ -134,7 +124,7 @@ class VideoItem extends Component {
       <ThemeContext.Consumer>
         {value => {
           const {isDark} = value
-
+          const className1 = isDark ? 'dark-home' : 'light'
           const className = isDark ? 'dark' : 'light'
           return (
             <VideoItemContainer
@@ -143,7 +133,7 @@ class VideoItem extends Component {
             >
               <Header />
               <div className="home-container">
-                <div className="menu">
+                <div className={`menu ${className1}`}>
                   <Menu />
                 </div>
                 <div className="video-container">{this.renderItem()}</div>

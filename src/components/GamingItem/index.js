@@ -1,14 +1,18 @@
 import {Link} from 'react-router-dom'
-// import './index.css'
+import './index.css'
 
 const GamingItem = props => {
   const {item} = props
   const {title, thumbnailUrl, viewCount, id} = item
 
   return (
-    <li className="video-item">
+    <li className="gaming-video-item">
       <Link to={`videos/${id}`} className="nav-link">
-        <img src={thumbnailUrl} alt="video thumbnail" className="thumbnail" />
+        <img
+          src={thumbnailUrl}
+          alt="video thumbnail"
+          className="gaming-thumbnail"
+        />
       </Link>
       <div className="profile-container">
         <div className="data-container">

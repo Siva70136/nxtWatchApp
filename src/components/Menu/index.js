@@ -1,6 +1,7 @@
 import {Link} from 'react-router-dom'
 import {AiFillHome, AiFillFire} from 'react-icons/ai'
 import {FaGamepad} from 'react-icons/fa'
+import {RiMenuAddFill} from 'react-icons/ri'
 import ThemeContext from '../../context/ThemeContext'
 import {
   NavItemContainer,
@@ -17,14 +18,14 @@ const Menu = () => (
   <ThemeContext.Consumer>
     {value => {
       const {isDark, changeActiveTab, activeTab} = value
-      const className = isDark ? 'dark' : 'light'
+      const className = isDark ? 'dark-home' : 'light'
 
       const onChangeTab = event => {
         changeActiveTab(event.target.id)
       }
 
       return (
-        <MainContainer isDark={isDark}>
+        <MainContainer className={className}>
           <LinkContainer>
             <Link
               to="/"
@@ -71,7 +72,7 @@ const Menu = () => (
             >
               <Item>
                 <NavItemContainer>
-                  <AiFillHome />
+                  <RiMenuAddFill />
                   <Caption id="SAVE"> Saved Videos</Caption>
                 </NavItemContainer>
               </Item>
